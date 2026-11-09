@@ -61,6 +61,11 @@ async function fetchPartners() {
   }
 }
 
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK", timestamp: new Date().toISOString() });
+});
+
 // Partnerler endpoint
 app.get("/api/partners", async (req, res) => {
   try {
